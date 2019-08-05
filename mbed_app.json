@@ -1,0 +1,39 @@
+{
+    "macros": [
+        "MBED_CONF_TLS_SOCKET_DEBUG_LEVEL=1",
+        "MBEDTLS_USER_CONFIG_FILE=\"mbedtls_azure_config.h\""
+    ],
+    "target_overrides": {
+        "*": {
+            "target.network-default-interface-type": "CELLULAR",
+            "mbed-trace.enable": true,
+            "lwip.ipv4-enabled": true,
+            "lwip.ethernet-enabled": false,
+            "lwip.ppp-enabled": false,
+            "lwip.tcp-enabled": true,
+            "platform.stdio-baud-rate": 115200,
+            "platform.stdio-convert-newlines": true,
+            "platform.default-serial-baud-rate": 115200,
+            "platform.stdio-buffered-serial": true,
+            "cellular.use-apn-lookup": false,
+            "cellular.debug-at": false,
+            "nsapi.default-cellular-plmn": 0,
+            "nsapi.default-cellular-sim-pin": "\"1234\"",
+            "nsapi.default-cellular-apn": 0,
+            "nsapi.default-cellular-username": 0,
+            "nsapi.default-cellular-password": 0
+        },
+        "WIO_3G": {
+            "target.device_has_remove": ["SERIAL_FC"],
+            "nsapi.default-cellular-apn": "\"internet.curiosity.sprint.com\"",
+            "nsapi.default-cellular-username": "\"username\"",
+            "nsapi.default-cellular-password": "\"password\""
+        },
+        "WIO_BG96": {
+            "nsapi.default-cellular-apn": "\"internet.curiosity.sprint.com\"",
+            "nsapi.default-cellular-username": 0,
+            "nsapi.default-cellular-password": 0
+        }
+    }
+}
+
